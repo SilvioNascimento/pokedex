@@ -48,4 +48,4 @@ Hit CTRL-C to stop the server
 
 ---
 
-[Voltar para a seção Tecnologias do README](../README.md#tecnologias)
+[Voltar para a seção Tecnologias do README](../../README.md#tecnologias)
