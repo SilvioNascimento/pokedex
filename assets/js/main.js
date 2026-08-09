@@ -38,9 +38,11 @@ O Fetch fornece uma definição genérica de objetos de Request e Response (e ou
 fetch(url)
   .then((response) => response.json())        // Retorna a resposta da API em formato JSON
   .then((jsonBody) => jsonBody.results)       // Retorna apenas os resultados dos dados encontrados no JSON
-  .then((pokemons) => {                       // Exibe os passos de como exibiu as informações dos    pokemons no log
-    debugger
-    console.log(pokemons)
+  .then((pokemons) => {
+    for (let i = 0; i < pokemons.length; i++) {
+      const pokemon = pokemons[i];
+      pokemonList.innerHTML += convertPokemonToLi(pokemon);
+    }
   })  
   .catch((error) => console.log(error))
   .finally(() => console.log('Requisição concluída'));
