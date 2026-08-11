@@ -35,15 +35,12 @@ const pokemonList = document.getElementById('pokemonList');
 /*
 O Fetch fornece uma definição genérica de objetos de Request e Response (e outras coisas envolvidas com solicitações de rede). Isso permitirá que eles sejam usados onde quer que sejam necessários no futuro, seja para service workers, Cache API e outras coisas similares que manipulam ou modifiquem pedidos e respostas ou qualquer tipo de caso de uso que possa exigir que você gere suas próprias responses programaticamente.
 */
-fetch(url)
-  .then((response) => response.json())        // Retorna a resposta da API em formato JSON
-  .then((jsonBody) => jsonBody.results)       // Retorna apenas os resultados dos dados encontrados no JSON
-  .then((pokemons) => {
-    for (let i = 0; i < pokemons.length; i++) {
-      const pokemon = pokemons[i];
-      pokemonList.innerHTML += convertPokemonToLi(pokemon);
-    }
-  })  
-  .catch((error) => console.log(error))
-  .finally(() => console.log('Requisição concluída'));
-
+pokeAPI.getPokemons().then((pokemons = []) => {
+  
+  pokemonList.innerHTML += pokemons.map(convertPokemonToLi).join('');
+  
+  //Ou pode substituir a linha 40 por estas linhas de código abaixo (está comentada)
+  // const newList = pokemons.map((pokemon) => convertPokemonToLi(pokemon));
+  // const newHTML = newList.join('');
+  // pokemonList.innerHTML += newHTML;
+});
