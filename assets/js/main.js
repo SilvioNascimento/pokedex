@@ -1,7 +1,7 @@
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("LoadMoreButton");
-const limit = 5;
 let offset = 0;
+const limit = 5;
 
 function loadPokemonItem(offset, limit) {
   pokeAPI.getPokemons(offset, limit).then((pokemons = []) => {
