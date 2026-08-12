@@ -9,6 +9,11 @@ const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 //   return result;
 // }
 
+const pokemonList = document.getElementById("pokemonList");
+const loadMoreButton = document.getElementById("LoadMoreButton");
+const limit = 5;
+let offset = 0;
+
 function convertPokemonToLi(pokemon) {
   return `
       <li class="pokemon">
