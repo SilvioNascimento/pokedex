@@ -1,14 +1,3 @@
-const offset = 0;
-const limit = 10;
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
-
-// async function capitalizeFirstLetter(string) {
-//   let word = String(string);
-//   let capitalize = word.charAt(0).toUpperCase + word.slice(1);
-//   let result = await capitalize;
-//   return result;
-// }
-
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("LoadMoreButton");
 const limit = 5;
