@@ -10,3 +10,10 @@ Uma pokedex com javascript, html e css. Este projeto foi realizado durante o cur
 - HTML
 - CSS
 - http-server. [mais informações](./docs/http-server.md)
+- normalize.css
+
+---
+
+## Ferramentas
+
+- Google Fonts
