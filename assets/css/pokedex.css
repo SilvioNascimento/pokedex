@@ -6,6 +6,15 @@
   grid-template-columns: 1fr;
 }
 
+.pokemons button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 .normal {
   background-color: #a6a877;
 }
