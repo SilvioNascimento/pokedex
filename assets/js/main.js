@@ -5,6 +5,10 @@ let offset = 0;
 const limit = 10;
 const maxRecords = 151;
 
+function redirectPageToPokemonData(id) {
+  window.location.href = `./assets/page/pokemon.html?id=${id}`;
+}
+
 function convertPokemonToLi(pokemon) {
   return `
     <button onclick="redirectPageToPokemonData(${pokemon.number})">
