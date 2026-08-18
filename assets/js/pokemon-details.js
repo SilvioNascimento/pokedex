@@ -11,6 +11,31 @@ function backForStart() {
   window.location.href = "/";
 }
 
+function convertPokemonToItemHtml(pokemonDetails) {
+  return `
+  <div class="pokemon-initial-data">
+    <!-- Pokemon Initial Data -->
+    <h2>${pokemonDetails.name}</h2>
+    <span>${pokemonDetails.number}</span>
+
+    <div class="detail">
+      <ol class="types">
+        ${pokemonDetails.types.map((type) => `<li class="type ${type}">${type}</li>`).join("")}
+      </ol>
+
+      <img
+        src="${pokemonDetails.photo}"
+        alt="${pokemonDetails.name}"
+      />
+    </div>
+  </div>
+
+  <div class="pokemon-other-data">
+    <!-- Pokemon Other data -->
+  </div>
+  `;
+}
+
 function loadRecordsOfThePokemonById(id) {
   pokeAPI.getPokemon(id).then((pokemon) => {
     console.log(pokemon);
