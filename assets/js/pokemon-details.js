@@ -38,6 +38,7 @@ function convertPokemonToItemHtml(pokemonDetails) {
 
 function loadRecordsOfThePokemonById(id) {
   pokeAPI.getPokemon(id).then((pokemon) => {
-    console.log(pokemon);
-  })
+    const newHtml = convertPokemonToItemHtml(pokemon);
+    pokemonPerfil.innerHTML += newHtml;
+  });
 }
