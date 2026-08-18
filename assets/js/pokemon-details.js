@@ -1,5 +1,6 @@
 const urlPage = new URLSearchParams(window.location.search);
 const pokemonId = urlPage.get('id');
+const pokemonPerfil = document.getElementById("pokemonPerfil");
 
 if (pokemonId) {
   loadRecordsOfThePokemonById(pokemonId);
