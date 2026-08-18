@@ -20,6 +20,21 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   return pokemon;
 }
 
+function convertPokeApiDetailToPokemonDetails(pokemon) {
+  const pokemonDetails = new PokemonDetails();
+  pokemonDetails.number = pokemon.id;
+  pokemonDetails.name = pokemon.name;
+
+  const types = pokemon.types.map((typeSlot) => typeSlot.type.name);
+  const [type] = types;   // Array Destructuring
+
+  pokemonDetails.types = types;
+  pokemonDetails.type = type;
+  pokemonDetails.photo = pokemon.sprites.other.dream_world.front_default;
+
+  return pokemonDetails;
+}
+
 pokeAPI.getPokemonDetail = (pokemon) => {
   return fetch(pokemon.url)
     .then((response) => response.json())
