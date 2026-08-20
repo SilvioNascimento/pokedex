@@ -11,7 +11,7 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   pokemon.name = pokeDetail.name;
 
   const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name);
-  const [type] = types;   // Array Destructuring
+  const [type] = types; // Array Destructuring
 
   pokemon.types = types;
   pokemon.type = type;
