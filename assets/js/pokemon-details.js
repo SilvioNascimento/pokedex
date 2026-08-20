@@ -42,5 +42,5 @@ function loadRecordsOfThePokemonById(id) {
   pokeAPI.getPokemon(id).then((pokemon) => {
     const newHtml = convertPokemonToItemHtml(pokemon);
     pokemonPerfil.innerHTML += newHtml;
-  });
+  }).finally(() => document.querySelector('.loading').remove());
 }
