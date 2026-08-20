@@ -63,9 +63,8 @@ loadMoreButton.addEventListener("click", () => {
     const newLimit = maxRecords - offset;
     loadPokemonItem(offset, newLimit);
 
-    loadMoreButton.parentElement.remove(loadMoreButton)
+    loadMoreButton.parentElement.remove(loadMoreButton);
   } else {
     loadPokemonItem(offset, limit);
   }
-
 });
