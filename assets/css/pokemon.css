@@ -1,0 +1,148 @@
+@import url("variaveis-cores.css");
+
+.normal {
+  background-color: var(--normal);
+}
+
+.grass {
+  background-color: var(--grass);
+}
+
+.fire {
+  background-color: var(--fire);
+}
+
+.water {
+  background-color: var(--water);
+}
+
+.electric {
+  background-color: var(--electric);
+}
+
+.ice {
+  background-color: var(--ice);
+}
+
+.ground {
+  background-color: var(--ground);
+}
+
+.flying {
+  background-color: var(--flying);
+}
+
+.poison {
+  background-color: var(--poison);
+}
+
+.fighting {
+  background-color: var(--fighting);
+}
+
+.psychic {
+  background-color: var(--psychic);
+}
+
+.dark {
+  background-color: var(--dark);
+}
+
+.rock {
+  background-color: var(--rock);
+}
+
+.bug {
+  background-color: var(--bug);
+}
+
+.ghost {
+  background-color: var(--ghost);
+}
+
+.steel {
+  background-color: var(--steel);
+}
+
+.dragon {
+  background-color: var(--dragon);
+}
+
+.fairy {
+  background-color: var(--fairy);
+}
+
+.pokemon-screen {
+  margin: 0;
+  padding: 0;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-screen .top-information {
+  padding: 0.5rem 1.5rem;
+}
+
+.pokemon-screen .top-information .header-panel {
+  padding: 2rem 0 1rem 0;
+}
+
+.pokemon-screen .top-information .header-panel .navbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.pokemon-screen .top-information .header-panel .navbar button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.pokemon-screen .top-information .pokemon-initial-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-screen .top-information .pokemon-initial-data .name {
+  text-transform: capitalize;
+  color: #fff;
+  margin: 0;
+}
+
+.pokemon-screen .top-information .pokemon-initial-data .number {
+  color: black;
+  opacity: 0.3;
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.pokemon-screen .top-information .pokemon-initial-data .detail .types {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+.pokemon-screen .top-information .pokemon-initial-data .detail .types .type {
+  text-transform: capitalize;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin: 0.25rem 0;
+  border-radius: 1rem;
+  filter: brightness(1.1);
+  text-align: center;
+}
+
+.pokemon-screen .top-information .pokemon-initial-data .detail img {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  height: 150px;
+  justify-self: center;
+}
