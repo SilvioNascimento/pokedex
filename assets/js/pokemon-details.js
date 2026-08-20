@@ -1,5 +1,5 @@
 const urlPage = new URLSearchParams(window.location.search);
-const pokemonId = urlPage.get('id');
+const pokemonId = urlPage.get("id");
 const pokemonPerfil = document.getElementById("pokemonPerfil");
 
 if (pokemonId) {
@@ -14,20 +14,31 @@ function backForStart() {
 
 function convertPokemonToItemHtml(pokemonDetails) {
   return `
-  <div class="pokemon-initial-data">
-    <!-- Pokemon Initial Data -->
-    <h2>${pokemonDetails.name}</h2>
-    <span>${pokemonDetails.number}</span>
+  <div class="top-information ${pokemonDetails.type}">
+    <header class='header-panel'>
+      <nav class='navbar'>
+        <button onclick="backForStart()">
+          <span class="material-symbols-outlined">
+            arrow_back
+          </span>
+        </button>
+      </nav>
+    </header>
+    <div class="pokemon-initial-data">
+      <!-- Pokemon Initial Data -->
+      <h2 class = 'name'>${pokemonDetails.name}</h2>
+      <span class = 'number'>#${pokemonDetails.number}</span>
 
-    <div class="detail">
-      <ol class="types">
-        ${pokemonDetails.types.map((type) => `<li class="type ${type}">${type}</li>`).join("")}
-      </ol>
+      <div class="detail">
+        <ol class="types">
+          ${pokemonDetails.types.map((type) => `<li class="type ${type}">${type}</li>`).join("")}
+        </ol>
 
-      <img
-        src="${pokemonDetails.photo}"
-        alt="${pokemonDetails.name}"
-      />
+        <img
+          src="${pokemonDetails.photo}"
+          alt="${pokemonDetails.name}"
+        />
+      </div>
     </div>
   </div>
 
