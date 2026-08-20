@@ -32,15 +32,24 @@ function convertPokemonToLi(pokemon) {
 }
 
 function loadPokemonItem(offset, limit) {
-  pokeAPI.getPokemons(offset, limit).then((pokemons = []) => {
-    const newHtml = pokemons.map(convertPokemonToLi).join("");
-    pokemonList.innerHTML += newHtml;
+  loadMoreButton.innerText = "Loading...";
+  loadMoreButton.disabled = true;
 
-    //Ou pode substituir a linha 40 por estas linhas de código abaixo (está comentada)
-    // const newList = pokemons.map((pokemon) => convertPokemonToLi(pokemon));
-    // const newHTML = newList.join('');
-    // pokemonList.innerHTML += newHTML;
-  });
+  pokeAPI.getPokemons(offset, limit)
+    .then((pokemons = []) => {
+      const newHtml = pokemons.map(convertPokemonToLi).join("");
+      pokemonList.innerHTML += newHtml;
+
+      //Ou pode substituir a linha 40 por estas linhas de código abaixo (está comentada)
+      // const newList = pokemons.map((pokemon) => convertPokemonToLi(pokemon));
+      // const newHTML = newList.join('');
+      // pokemonList.innerHTML += newHTML;
+    })
+    .finally(() => {
+      // 2. Restaura o botão após o término (sucesso ou erro)
+      loadMoreButton.innerText = "Load More";
+      loadMoreButton.disabled = false;
+    });
 }
 
 loadPokemonItem(offset, limit);
