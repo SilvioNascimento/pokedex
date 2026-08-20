@@ -53,9 +53,21 @@ pokeAPI.getPokemons = (offset = 0, limit = 5) => {
 };
 
 pokeAPI.getPokemon = (id) => {
+  const cacheKey = `pokemon_${id}`;
+  const cachedData = sessionStorage.getItem(cacheKey);
+
+  // Se já existir no cache, retorna direto sem gastar rede
+  if (cachedData) {
+    return Promise.resolve(JSON.parse(cachedData));
+  }
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   return fetch(url)
     .then((response) => response.json())
-    .then((pokemon) => convertPokeApiDetailToPokemonDetails(pokemon))
+    .then((pokemon) => {
+      const details = convertPokeApiDetailToPokemonDetails(pokemon);
+      // Salva no cache da sessão
+      sessionStorage.setItem(cacheKey, JSON.stringify(details));
+      return details;
+    })
     .catch((error) => console.error(error));
 };
