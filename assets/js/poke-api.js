@@ -32,6 +32,9 @@ function convertPokeApiDetailToPokemonDetails(pokemon) {
   pokemonDetails.type = type;
   pokemonDetails.photo = pokemon.sprites.other.dream_world.front_default;
 
+  pokemonDetails.about.height = ((pokemon.height)/10).toFixed(2);
+  pokemonDetails.about.weight = ((pokemon.weight)/10).toFixed(1);
+
   return pokemonDetails;
 }
 
