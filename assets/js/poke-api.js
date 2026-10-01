@@ -1,9 +1,9 @@
 const pokeAPI = {};
 
-// function capitalizeFirstLetter(string) {
-//   if (!string) return '';
-//   return string.charAt(0).toUpperCase() + string.slice(1);
-// }
+function capitalizeFirstLetter(string) {
+  if (!string) return '';
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function convertPokeApiDetailToPokemon(pokeDetail) {
   const pokemon = new Pokemon();
@@ -34,6 +34,7 @@ function convertPokeApiDetailToPokemonDetails(pokemon) {
 
   pokemonDetails.about.height = ((pokemon.height)/10).toFixed(2);
   pokemonDetails.about.weight = ((pokemon.weight)/10).toFixed(1);
+  pokemonDetails.about.abilities = pokemon.abilities.map((abilitySlot) => capitalizeFirstLetter(abilitySlot.ability.name));
 
   return pokemonDetails;
 }
