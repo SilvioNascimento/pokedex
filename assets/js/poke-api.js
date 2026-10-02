@@ -22,6 +22,16 @@ function gendersPokemon(value) {
   return genders;
 }
 
+function eggGroupsPokemon(value) {
+  let eggGroupsName = [];
+
+  let eggGroups = value.egg_groups;
+
+  eggGroupsName = eggGroups.map((eggGroupsSlot) => capitalizeFirstLetter(eggGroupsSlot.name))
+
+  return eggGroupsName;
+}
+
 function convertPokeApiDetailToPokemon(pokeDetail) {
   const pokemon = new Pokemon();
   pokemon.number = pokeDetail.id;
