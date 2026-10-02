@@ -5,6 +5,23 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function gendersPokemon(value) {
+  let genders = {};
+
+  const valueGenderFemale = Number(value.gender_rate);
+  const percentageGenderFemale = (valueGenderFemale / 8) * 100;
+
+  const genderFemalePokemon =
+    valueGenderFemale !== -1 ? percentageGenderFemale + "%" : "Gender Unknown";
+  const genderMalePokemon =
+    valueGenderFemale !== -1 ? (100 - percentageGenderFemale) + "%" : "Gender Unknown";
+
+  genders.female = genderFemalePokemon;
+  genders.male = genderMalePokemon;
+
+  return genders;
+}
+
 function convertPokeApiDetailToPokemon(pokeDetail) {
   const pokemon = new Pokemon();
   pokemon.number = pokeDetail.id;
