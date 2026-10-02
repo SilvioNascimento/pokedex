@@ -61,9 +61,7 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
   pokemonDetails.photo = pokemon.sprites.other.dream_world.front_default;
 
   let specie = pokemon_species.genera[7].genus.split(" ");
-  console.log(specie);
   specie.pop();
-  console.log(specie);
 
   pokemonDetails.about.specie = specie.join(" ");
   pokemonDetails.about.height = (pokemon.height / 10).toFixed(2);
@@ -72,7 +70,6 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
     capitalizeFirstLetter(abilitySlot.ability.name),
   );
 
-  // const pokemon_species = pokeAPI.getPokemonBySpecies(pokemon.id);
   pokemonDetails.about.genders = gendersPokemon(pokemon_species);
 
   return pokemonDetails;
