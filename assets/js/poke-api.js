@@ -95,8 +95,12 @@ pokeAPI.getPokemon = (id) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   return fetch(url)
     .then((response) => response.json())
-    .then((pokemon) => {
-      const details = convertPokeApiDetailToPokemonDetails(pokemon);
+    .then((pokemon) => Promise.all([pokemon, pokeAPI.getPokemonBySpecies(id)]))
+    .then(([pokemon, pokemon_species]) => {
+      const details = convertPokeApiDetailToPokemonDetails(
+        pokemon,
+        pokemon_species,
+      );
       // Salva no cache da sessão
       sessionStorage.setItem(cacheKey, JSON.stringify(details));
       return details;
