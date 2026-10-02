@@ -107,3 +107,22 @@ pokeAPI.getPokemon = (id) => {
     })
     .catch((error) => console.error(error));
 };
+
+pokeAPI.getPokemonBySpecies = (id) => {
+  const cacheKey = `pokemon-species_${id}`;
+  const cachedData = sessionStorage.getItem(cacheKey);
+
+  // Se já existir no cache, retorna direto sem gastar rede
+  if (cachedData) {
+    return Promise.resolve(JSON.parse(cachedData));
+  }
+
+  const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+  return fetch(url)
+    .then((response) => response.json())
+    .then((pokemon) => {
+      sessionStorage.setItem(cacheKey, JSON.stringify(pokemon));
+      return pokemon;
+    })
+    .catch((error) => console.error(error));
+};
