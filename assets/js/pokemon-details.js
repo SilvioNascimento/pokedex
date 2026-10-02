@@ -44,6 +44,7 @@ function convertPokemonToItemHtml(pokemonDetails) {
 
   <div class="pokemon-other-data">
     <!-- Pokemon Other data -->
+    <p>Specie:\t${pokemonDetails.about.specie}</p>
     <p>Height:\t${pokemonDetails.about.height} m</p>
     <p>Weight:\t${pokemonDetails.about.weight} Kg</p>
     <p>Abilities:\t${pokemonDetails.about.abilities}</p>
