@@ -55,7 +55,7 @@ function convertPokemonToItemHtml(pokemonDetails) {
       <p>Male: ${pokemonDetails.about.genders["male"]}</p>
       <p>Female: ${pokemonDetails.about.genders["female"]}</p>
     </div>
-
+      <p>Egg Groups: ${pokemonDetails.about.egg_groups}</p>
   </div>
   `;
 }
