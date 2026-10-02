@@ -52,6 +52,7 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
   pokemonDetails.number = pokemon.id;
   pokemonDetails.name = pokemon.name;
 
+  //About tab
   const types = pokemon.types.map((typeSlot) => typeSlot.type.name);
   const [type] = types; // Array Destructuring
 
