@@ -71,6 +71,7 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
   );
 
   pokemonDetails.about.genders = gendersPokemon(pokemon_species);
+  pokemonDetails.about.egg_groups = eggGroupsPokemon(pokemon_species);
 
   return pokemonDetails;
 }
