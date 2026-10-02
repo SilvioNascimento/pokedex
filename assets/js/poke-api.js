@@ -37,7 +37,7 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   return pokemon;
 }
 
-function convertPokeApiDetailToPokemonDetails(pokemon) {
+function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
   const pokemonDetails = new PokemonDetails();
   pokemonDetails.number = pokemon.id;
   pokemonDetails.name = pokemon.name;
@@ -49,9 +49,20 @@ function convertPokeApiDetailToPokemonDetails(pokemon) {
   pokemonDetails.type = type;
   pokemonDetails.photo = pokemon.sprites.other.dream_world.front_default;
 
-  pokemonDetails.about.height = ((pokemon.height)/10).toFixed(2);
-  pokemonDetails.about.weight = ((pokemon.weight)/10).toFixed(1);
-  pokemonDetails.about.abilities = pokemon.abilities.map((abilitySlot) => capitalizeFirstLetter(abilitySlot.ability.name));
+  let specie = pokemon_species.genera[7].genus.split(" ");
+  console.log(specie);
+  specie.pop();
+  console.log(specie);
+
+  pokemonDetails.about.specie = specie.join(" ");
+  pokemonDetails.about.height = (pokemon.height / 10).toFixed(2);
+  pokemonDetails.about.weight = (pokemon.weight / 10).toFixed(1);
+  pokemonDetails.about.abilities = pokemon.abilities.map((abilitySlot) =>
+    capitalizeFirstLetter(abilitySlot.ability.name),
+  );
+
+  // const pokemon_species = pokeAPI.getPokemonBySpecies(pokemon.id);
+  pokemonDetails.about.genders = gendersPokemon(pokemon_species);
 
   return pokemonDetails;
 }
