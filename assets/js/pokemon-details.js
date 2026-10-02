@@ -48,6 +48,13 @@ function convertPokemonToItemHtml(pokemonDetails) {
     <p>Weight:\t${pokemonDetails.about.weight} Kg</p>
     <p>Abilities:\t${pokemonDetails.about.abilities}</p>
 
+    <h3>Breeding</h3>
+    <p>Genders:</p>
+    <div class="genders-pokemon">
+      <p>Male: ${pokemonDetails.about.genders["male"]}</p>
+      <p>Female: ${pokemonDetails.about.genders["female"]}</p>
+    </div>
+
   </div>
   `;
 }
