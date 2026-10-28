@@ -73,6 +73,27 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
   pokemonDetails.about.genders = gendersPokemon(pokemon_species);
   pokemonDetails.about.egg_groups = eggGroupsPokemon(pokemon_species);
 
+  //Base Stats tab
+  pokemonDetails.base_stats = [];
+  pokemon.stats.map((baseStatSlot) => {
+    pokemonDetails.base_stats.push({
+      statName: capitalizeFirstLetter(baseStatSlot.stat.name),
+      base_stat: baseStatSlot.base_stat
+    });
+  });
+
+  const totalPoints = 
+    pokemonDetails.base_stats
+    .map((baseStatSlot) => baseStatSlot.base_stat)
+    .reduce((soma, v) => soma + v, 0);
+
+  pokemonDetails.base_stats.push({
+    statName: 'Total',
+    base_stat: totalPoints
+  })
+
+  console.log(pokemonDetails.base_stats);
+
   return pokemonDetails;
 }
 
