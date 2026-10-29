@@ -77,8 +77,11 @@ function convertPokemonToItemHtml(pokemonDetails) {
 
 function loadRecordsOfThePokemonById(id) {
   pokemonPerfil.innerHTML = `<div class="loading">Carregando detalhes do Pokémon...</div>`;
-  pokeAPI.getPokemon(id).then((pokemon) => {
-    const newHtml = convertPokemonToItemHtml(pokemon);
-    pokemonPerfil.innerHTML += newHtml;
-  }).finally(() => document.querySelector('.loading').remove());
+  pokeAPI
+    .getPokemon(id)
+    .then((pokemon) => {
+      const newHtml = convertPokemonToItemHtml(pokemon);
+      pokemonPerfil.innerHTML += newHtml;
+    })
+    .finally(() => document.querySelector(".loading").remove());
 }
