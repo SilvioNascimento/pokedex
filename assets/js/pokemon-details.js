@@ -42,19 +42,16 @@ function convertPokemonToItemHtml(pokemonDetails) {
     </div>
   </div>
 
-  <div class="nav">
-    <h4>About</h4>
-    <h4>Base Stats</h4>
-    <h4>Evolution</h4>
-    <h4>Moves</h4>
-  </div>
-
-  <div class="pokemon-other-data">
-    <!-- Pokemon Other data -->
-    <p>Specie: ${pokemonDetails.about.specie}</p>
-    <p>Height: ${pokemonDetails.about.height} m</p>
-    <p>Weight: ${pokemonDetails.about.weight} Kg</p>
-    <p>Abilities: ${pokemonDetails.about.abilities}</p>
+  <div class="nav_tabs">
+    <ul>
+      <li>
+        <input type="radio" name="tabs" class="rd_tab" id="about" checked/>
+        <label for="about" class="tab_label" style="border-bottom: 2px solid var(--${pokemonDetails.type})">About</label>
+        <div class="pokemon-other-data">
+          <p>Specie: ${pokemonDetails.about.specie}</p>
+          <p>Height: ${pokemonDetails.about.height} m</p>
+          <p>Weight: ${pokemonDetails.about.weight} Kg</p>
+          <p>Abilities: ${pokemonDetails.about.abilities}</p>
 
     <h3>Breeding</h3>
     <p>Genders:</p>
