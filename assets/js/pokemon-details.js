@@ -53,13 +53,24 @@ function convertPokemonToItemHtml(pokemonDetails) {
           <p>Weight: ${pokemonDetails.about.weight} Kg</p>
           <p>Abilities: ${pokemonDetails.about.abilities}</p>
 
-    <h3>Breeding</h3>
-    <p>Genders:</p>
-    <div class="genders-pokemon">
-      <p>Male: ${pokemonDetails.about.genders["male"]}</p>
-      <p>Female: ${pokemonDetails.about.genders["female"]}</p>
-    </div>
-      <p>Egg Groups: ${pokemonDetails.about.egg_groups}</p>
+          <h3>Breeding</h3>
+          <p>Genders:</p>
+          <div class="genders-pokemon">
+            <p>Male: ${pokemonDetails.about.genders["male"]}</p>
+            <p>Female: ${pokemonDetails.about.genders["female"]}</p>
+          </div>
+            <p>Egg Groups: ${pokemonDetails.about.egg_groups}</p>
+        </div>
+      </li>
+
+      <li>
+        <input type="radio" name="tabs" class="rd_tab" id="base_stats" />
+        <label for="base_stats" class="tab_label" style="border-bottom: 2px solid var(--${pokemonDetails.type})">Base Stats</label>
+        <div class="pokemon-other-data">
+          ${pokemonDetails.base_stats.map((stat) => `<p>${stat.statName}: ${stat.base_stat}</p>`).join("")}
+        </div>
+      </li>
+    </ul>
   </div>
   `;
 }
