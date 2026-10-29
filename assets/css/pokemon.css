@@ -147,3 +147,50 @@
   height: 150px;
   justify-self: center;
 }
+
+.nav_tabs {
+  position: relative;
+  background-color: #fff;
+}
+
+.nav_tabs ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+}
+
+.nav_tabs ul li {
+  flex: 1;
+  text-align: center;
+}
+
+.tab_label {
+  display: block;
+  width: 100%;
+  color: #8f8f8f;
+  font-weight: bold;
+  padding: 25px 10px; /* Ajustado o padding horizontal para caber bem */
+  cursor: pointer;
+  text-align: center;
+}
+
+.nav_tabs .rd_tab {
+  display: none;
+  position: absolute;
+}
+
+.nav_tabs .rd_tab:checked ~ label {
+  color: black;
+}
+
+.pokemon-other-data {
+  /* border-top: solid 5px red; */
+  display: none;
+  position: absolute;
+  left: 0;
+  text-align: justify;
+}
+
+.rd_tab:checked ~ .pokemon-other-data {
+  display: block;
+}
