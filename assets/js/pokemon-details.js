@@ -43,7 +43,7 @@ function convertPokemonToItemHtml(pokemonDetails) {
   </div>
 
   <div class="nav_tabs">
-    <ul>
+    <ul role="tablist">
       <li>
         <input type="radio" name="tabs" class="rd_tab" id="about-${pokemonDetails.number}" checked/>
         <label for="about-${pokemonDetails.number}" class="tab_label" style="border-bottom: 2px solid var(--${pokemonDetails.type})">About</label>
