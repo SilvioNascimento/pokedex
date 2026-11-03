@@ -157,6 +157,7 @@
   list-style: none;
   display: flex;
   width: 100%;
+  padding-left: 0px;
 }
 
 .nav_tabs ul li {
