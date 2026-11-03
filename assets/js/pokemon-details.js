@@ -45,8 +45,8 @@ function convertPokemonToItemHtml(pokemonDetails) {
   <div class="nav_tabs">
     <ul>
       <li>
-        <input type="radio" name="tabs" class="rd_tab" id="about" checked/>
-        <label for="about" class="tab_label" style="border-bottom: 2px solid var(--${pokemonDetails.type})">About</label>
+        <input type="radio" name="tabs" class="rd_tab" id="about-${pokemonDetails.number}" checked/>
+        <label for="about-${pokemonDetails.number}" class="tab_label" style="border-bottom: 2px solid var(--${pokemonDetails.type})">About</label>
         <div class="pokemon-other-data">
           <p>Specie: ${pokemonDetails.about.specie}</p>
           <p>Height: ${pokemonDetails.about.height} m</p>
@@ -64,8 +64,8 @@ function convertPokemonToItemHtml(pokemonDetails) {
       </li>
 
       <li>
-        <input type="radio" name="tabs" class="rd_tab" id="base_stats" />
-        <label for="base_stats" class="tab_label" style="border-bottom: 2px solid var(--${pokemonDetails.type})">Base Stats</label>
+        <input type="radio" name="tabs" class="rd_tab" id="base_stats-${pokemonDetails.number}" />
+        <label for="base_stats-${pokemonDetails.number}" class="tab_label" style="border-bottom: 2px solid var(--${pokemonDetails.type})">Base Stats</label>
         <div class="pokemon-other-data">
           ${pokemonDetails.base_stats.map((stat) => `<p>${stat.statName}: ${stat.base_stat}</p>`).join("")}
         </div>
