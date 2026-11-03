@@ -182,6 +182,8 @@
 
 .nav_tabs .rd_tab:checked ~ label {
   color: black;
+  text-decoration: underline var(--tipo-cor) 2px;
+  text-underline-offset: 8px;
 }
 
 .pokemon-other-data {
