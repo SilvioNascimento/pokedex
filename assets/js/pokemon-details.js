@@ -43,34 +43,28 @@ function convertPokemonToItemHtml(pokemonDetails) {
   </div>
 
   <div class="nav_tabs">
-    <ul role="tablist">
-      <li>
-        <input role="tab" type="radio" name="tabs" class="rd_tab" id="about-${pokemonDetails.number}" checked/>
-        <label for="about-${pokemonDetails.number}" class="tab_label" style="--tipo-cor: var(--${pokemonDetails.type})">About</label>
-        <div class="pokemon-other-data">
-          <p>Specie: ${pokemonDetails.about.specie}</p>
-          <p>Height: ${pokemonDetails.about.height} m</p>
-          <p>Weight: ${pokemonDetails.about.weight} Kg</p>
-          <p>Abilities: ${pokemonDetails.about.abilities}</p>
+    <input role="tab" type="radio" name="tabs" class="rd_tab" id="about-${pokemonDetails.number}" checked/>
+    <label for="about-${pokemonDetails.number}" class="tab_label" style="--tipo-cor: var(--${pokemonDetails.type})">About</label>
+    <div class="tab">
+      <p>Specie: ${pokemonDetails.about.specie}</p>
+      <p>Height: ${pokemonDetails.about.height} m</p>
+      <p>Weight: ${pokemonDetails.about.weight} Kg</p>
+      <p>Abilities: ${pokemonDetails.about.abilities}</p>
 
-          <h3>Breeding</h3>
-          <p>Genders:</p>
-          <div class="genders-pokemon">
-            <p>Male: ${pokemonDetails.about.genders["male"]}</p>
-            <p>Female: ${pokemonDetails.about.genders["female"]}</p>
-          </div>
-            <p>Egg Groups: ${pokemonDetails.about.egg_groups}</p>
-        </div>
-      </li>
+      <h3>Breeding</h3>
+      <p>Genders:</p>
+      <div class="genders-pokemon">
+        <p>Male: ${pokemonDetails.about.genders["male"]}</p>
+        <p>Female: ${pokemonDetails.about.genders["female"]}</p>
+      </div>
+        <p>Egg Groups: ${pokemonDetails.about.egg_groups}</p>
+    </div>
 
-      <li>
-        <input role="tab" type="radio" name="tabs" class="rd_tab" id="base_stats-${pokemonDetails.number}" />
-        <label for="base_stats-${pokemonDetails.number}" class="tab_label" style="--tipo-cor: var(--${pokemonDetails.type})">Base Stats</label>
-        <div class="pokemon-other-data">
-          ${pokemonDetails.base_stats.map((stat) => `<p>${stat.statName}: ${stat.base_stat}</p>`).join("")}
-        </div>
-      </li>
-    </ul>
+    <input role="tab" type="radio" name="tabs" class="rd_tab" id="base_stats-${pokemonDetails.number}" />
+    <label for="base_stats-${pokemonDetails.number}" class="tab_label" style="--tipo-cor: var(--${pokemonDetails.type})">Base Stats</label>
+    <div class="tab base_stats-content">
+      ${pokemonDetails.base_stats.map((stat) => `<p>${stat.statName}: ${stat.base_stat}</p>`).join("")}
+    </div>
   </div>
   `;
 }
