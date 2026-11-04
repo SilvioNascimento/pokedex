@@ -152,6 +152,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  background-color: #fff;
 }
 
 .nav_tabs input[type="radio"] {
@@ -160,14 +161,12 @@
 
 .nav_tabs label {
   padding: 15px;
-  background-color: #fff;
   font-weight: bold;
 }
 
 .tab {
   display: none;
   width: 100%;
-  background: #fff;
   padding: 10px 30px;
   order: 1;
 }
@@ -179,5 +178,4 @@
 .nav_tabs input[type="radio"]:checked + label  {
   text-decoration: underline var(--tipo-cor) 2px;
   text-underline-offset: 8px;
-  background: #f6f8fc;
 }
