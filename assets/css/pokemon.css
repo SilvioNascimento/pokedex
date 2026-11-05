@@ -162,7 +162,6 @@
 
 .nav_tabs label {
   padding: 15px;
-  font-weight: bold;
 }
 
 .tab {
@@ -177,6 +176,9 @@
 }
 
 .nav_tabs input[type="radio"]:checked + label  {
+  transition: 0.2s;
+  color: black;
+  font-weight: bold;
   text-decoration: underline var(--tipo-cor) 2px;
   text-underline-offset: 8px;
 }
