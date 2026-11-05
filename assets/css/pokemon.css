@@ -153,6 +153,7 @@
   flex-wrap: wrap;
   width: 100%;
   background-color: #fff;
+  z-index: 0;
 }
 
 .nav_tabs input[type="radio"] {
