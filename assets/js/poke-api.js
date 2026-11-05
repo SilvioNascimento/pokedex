@@ -14,7 +14,9 @@ function gendersPokemon(value) {
   const genderFemalePokemon =
     valueGenderFemale !== -1 ? percentageGenderFemale + "%" : "Gender Unknown";
   const genderMalePokemon =
-    valueGenderFemale !== -1 ? (100 - percentageGenderFemale) + "%" : "Gender Unknown";
+    valueGenderFemale !== -1
+      ? 100 - percentageGenderFemale + "%"
+      : "Gender Unknown";
 
   genders.female = genderFemalePokemon;
   genders.male = genderMalePokemon;
@@ -27,7 +29,9 @@ function eggGroupsPokemon(value) {
 
   let eggGroups = value.egg_groups;
 
-  eggGroupsName = eggGroups.map((eggGroupsSlot) => capitalizeFirstLetter(eggGroupsSlot.name))
+  eggGroupsName = eggGroups.map((eggGroupsSlot) =>
+    capitalizeFirstLetter(eggGroupsSlot.name),
+  );
 
   return eggGroupsName;
 }
@@ -78,12 +82,11 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
   pokemon.stats.map((baseStatSlot) => {
     pokemonDetails.base_stats.push({
       statName: capitalizeFirstLetter(baseStatSlot.stat.name),
-      base_stat: baseStatSlot.base_stat
+      base_stat: baseStatSlot.base_stat,
     });
   });
 
-  const totalPoints = 
-    pokemonDetails.base_stats
+  const totalPoints = pokemonDetails.base_stats
     .map((baseStatSlot) => baseStatSlot.base_stat)
     .reduce((soma, v) => soma + v, 0);
 
