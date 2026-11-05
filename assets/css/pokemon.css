@@ -156,11 +156,11 @@
   z-index: 0;
 }
 
-.nav_tabs input[type="radio"] {
+.nav_tabs .rd_tab {
   display: none;
 }
 
-.nav_tabs label {
+.nav_tabs .tab_label {
   color: gray;
   padding: 15px;
 }
@@ -172,11 +172,11 @@
   order: 1;
 }
 
-.nav_tabs input[type="radio"]:checked + label + .tab {
+.nav_tabs .rd_tab:checked + .tab_label + .tab {
   display: block;
 }
 
-.nav_tabs input[type="radio"]:checked + label  {
+.nav_tabs .rd_tab:checked + .tab_label  {
   transition: 0.2s;
   color: black;
   font-weight: bold;
