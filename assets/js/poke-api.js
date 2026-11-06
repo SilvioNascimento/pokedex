@@ -159,3 +159,21 @@ pokeAPI.getPokemonBySpecies = (id) => {
     })
     .catch((error) => console.error(error));
 };
+
+pokeAPI.getMovePokemon = (urlMove, idPokemon) => {
+  const cacheKey = `move-pokemon_${idPokemon}`;
+  const cachedData = sessionStorage.getItem(cacheKey);
+
+  if (cachedData) {
+    return Promise.resolve(JSON.parse(cachedData));
+  }
+
+  const url = urlMove;
+  return fetch(url)
+    .then((response) => response.json())
+    .then((movePokemon) => {
+      sessionStorage.setItem(cacheKey, JSON.stringify(movePokemon));
+      return movePokemon
+    })
+    .catch((error) => console.error(error));
+};
