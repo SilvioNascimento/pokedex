@@ -102,7 +102,7 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
     capitalizeFirstLetter(moveSlot.move.name)
   );
 
-  console.log(pokemonDetails.base_stats);
+  console.log("Dados completos do PokemonDetails:", pokemonDetails);
 
   return pokemonDetails;
 }
