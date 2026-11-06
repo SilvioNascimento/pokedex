@@ -91,9 +91,16 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
     .reduce((soma, v) => soma + v, 0);
 
   pokemonDetails.base_stats.push({
-    statName: 'Total',
-    base_stat: totalPoints
-  })
+    statName: "Total",
+    base_stat: totalPoints,
+  });
+
+  // Moves tab
+  const QTD_MOVIMENTOS = 10;
+  const listaMovimentosLimitados = pokemon.moves.slice(0, QTD_MOVIMENTOS);
+  pokemonDetails.moves = listaMovimentosLimitados.map((moveSlot) => 
+    capitalizeFirstLetter(moveSlot.move.name)
+  );
 
   console.log(pokemonDetails.base_stats);
 
