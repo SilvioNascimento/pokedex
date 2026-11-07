@@ -124,7 +124,7 @@ pokeAPI.getPokemons = (offset = 0, limit = 5) => {
     .catch((error) => console.error(error));
 };
 
-pokeAPI.getPokemon = (id) => {
+pokeAPI.getPokemon = async (id) => {
   const cacheKey = `pokemon_${id}`;
   const cachedData = sessionStorage.getItem(cacheKey);
 
