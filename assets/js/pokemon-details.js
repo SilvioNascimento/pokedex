@@ -69,6 +69,7 @@ function convertPokemonToItemHtml(pokemonDetails) {
     <input role="tab" type="radio" name="tabs" class="rd_tab" id="evolution-${pokemonDetails.number}" />
     <label for="evolution-${pokemonDetails.number}" class="tab_label" style="--tipo-cor: var(--${pokemonDetails.type})">Evolution</label>
     <div class="tab evolution-content">
+      ${pokemonDetails.evolution.map((name) => `<p>${name}</p>`).join("")}
     </div>
 
     <input role="tab" type="radio" name="tabs" class="rd_tab" id="moves-${pokemonDetails.number}" />
