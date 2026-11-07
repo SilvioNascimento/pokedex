@@ -51,7 +51,7 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   return pokemon;
 }
 
-function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species) {
+function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species, evolutionData) {
   const pokemonDetails = new PokemonDetails();
   pokemonDetails.number = pokemon.id;
   pokemonDetails.name = pokemon.name;
