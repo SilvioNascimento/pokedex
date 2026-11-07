@@ -95,6 +95,17 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species, evolutio
     base_stat: totalPoints,
   });
 
+  // Evolution tab
+  pokemonDetails.evolution = [];
+  let currentEvolution = evolutionData.chain;
+
+  do {
+    pokemonDetails.evolution.push(capitalizeFirstLetter(currentEvolution.species.name));
+    
+    // Avança para a próxima evolução (se existir)
+    currentEvolution = currentEvolution.evolves_to[0];
+  } while (currentEvolution && currentEvolution.hasOwnProperty('evolves_to'));
+
   // Moves tab
   const QTD_MOVIMENTOS = 10;
   const listaMovimentosLimitados = pokemon.moves.slice(0, QTD_MOVIMENTOS);
