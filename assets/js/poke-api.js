@@ -109,8 +109,8 @@ function convertPokeApiDetailToPokemonDetails(pokemon, pokemon_species, evolutio
   // Moves tab
   const QTD_MOVIMENTOS = 10;
   const listaMovimentosLimitados = pokemon.moves.slice(0, QTD_MOVIMENTOS);
-  pokemonDetails.moves = listaMovimentosLimitados.map((moveSlot) => 
-    capitalizeFirstLetter(moveSlot.move.name)
+  pokemonDetails.moves = listaMovimentosLimitados.map((moveSlot) =>
+    capitalizeFirstLetter(moveSlot.move.name),
   );
 
   console.log("Dados completos do PokemonDetails:", pokemonDetails);
