@@ -180,7 +180,32 @@ pokeAPI.getMovePokemon = (urlMove, idPokemon) => {
     .then((response) => response.json())
     .then((movePokemon) => {
       sessionStorage.setItem(cacheKey, JSON.stringify(movePokemon));
-      return movePokemon
+      return movePokemon;
+    })
+    .catch((error) => console.error(error));
+};
+
+pokeAPI.getEvolutionInPokemon = (id) => {
+  const cacheKey = `evolution-pokemon_${id}`;
+  const cachedData = sessionStorage.getItem(cacheKey);
+
+  if (cachedData) {
+    return Promise.resolve(JSON.parse(cachedData));
+  }
+
+  const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .then((speciesData) => {
+      // Precisamos buscar a URL da cadeia de evolução que vem dentro da espécie
+      return fetch(speciesData.evolution_chain.url);
+    })
+    .then((response) => response.json())
+    .then((evolutionData) => {
+      // Aqui você processa a árvore de evolução se quiser, ou guarda o objeto bruto
+      sessionStorage.setItem(cacheKey, JSON.stringify(evolutionData));
+      return evolutionData;
     })
     .catch((error) => console.error(error));
 };
