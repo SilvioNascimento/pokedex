@@ -135,11 +135,12 @@ pokeAPI.getPokemon = async (id) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   return fetch(url)
     .then((response) => response.json())
-    .then((pokemon) => Promise.all([pokemon, pokeAPI.getPokemonBySpecies(id)]))
-    .then(([pokemon, pokemon_species]) => {
+    .then((pokemon) => Promise.all([pokemon, pokeAPI.getPokemonBySpecies(id), pokeAPI.getEvolutionInPokemon(id)]))
+    .then(([pokemon, pokemon_species, pokemon_evolution]) => {
       const details = convertPokeApiDetailToPokemonDetails(
         pokemon,
         pokemon_species,
+        pokemon_evolution,
       );
       // Salva no cache da sessão
       sessionStorage.setItem(cacheKey, JSON.stringify(details));
